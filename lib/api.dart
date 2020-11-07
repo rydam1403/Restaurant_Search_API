@@ -25,11 +25,10 @@ class ZomatoApi{
     },
   ));
 
-  List<Categories> _categories;
 
   Future loadCategories() async {
     final response = await _dio.get('categories');
-    final data = response.data('categories');
+    final data = response.data['categories'];
     categories.addAll( data.map<Categories>((json) => Categories (
       json['categories']['id'],
       json['categories']['name'],

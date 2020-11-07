@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'SearchPage.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:dio/dio.dart';
-import 'search_form.dart';
-import 'search_filter_page.dart';
 import 'package:provider/provider.dart';
 import 'app_state.dart';
 import 'api.dart';
@@ -19,7 +16,7 @@ void main() async{
       MultiProvider(
         providers: [
           Provider(create: (context) => api),
-          Provider(create: (context) => AppState())
+          Provider(create: (context) => AppState()),
         ],
         child: RestaurantSearchApp(),
       ),

@@ -1,5 +1,4 @@
 import 'search_filter_page.dart';
-import 'restaurant_item.dart';
 import 'api.dart';
 
 class AppState{

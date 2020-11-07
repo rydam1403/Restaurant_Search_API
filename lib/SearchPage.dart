@@ -17,8 +17,8 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    final state = Provider.of<AppState>(context);
     final api = Provider.of<ZomatoApi>(context);
+    final state = Provider.of<AppState>(context);
 
     return SafeArea(
         child: Scaffold(
@@ -34,7 +34,7 @@ class _SearchPageState extends State<SearchPage> {
                   );
                 },
                 child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Icon(
                     Icons.tune,
                   ),
@@ -56,7 +56,6 @@ class _SearchPageState extends State<SearchPage> {
                       });
                     }
                 )),
-              SizedBox(height: 10.0,),
               query == null
                   ? Expanded(
                   child: Column(
@@ -70,7 +69,7 @@ class _SearchPageState extends State<SearchPage> {
                       Text(
                         'No results to display',
                         style: TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 20,
                           color: Colors.black12,
                           fontWeight: FontWeight.bold,
                         ),

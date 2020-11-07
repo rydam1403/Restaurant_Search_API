@@ -105,7 +105,7 @@ class Restaurant{
   });
   factory Restaurant(Map json) => Restaurant._(
       name: json['restaurant']['name'],
-      address: json['restaurant']['address'],
+      address: json['restaurant']['location']['address'],
       rating:
       json['restaurant']['user_rating']['aggregate_rating']?.toString(),
       reviews: json['restaurant']['all_reviews_count'],

@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
-import 'search_form.dart';
-import 'restaurant_item.dart';
-import 'SearchPage.dart';
 import 'package:provider/provider.dart';
 import 'app_state.dart';
 import 'api.dart';
@@ -17,8 +13,8 @@ class _SearchFiltersState extends State<SearchFilters>{
 
   @override
   Widget build(BuildContext context) {
-    final state = Provider.of<AppState>(context);
     final api = Provider.of<ZomatoApi>(context);
+    final state = Provider.of<AppState>(context);
 
     return SafeArea(
         child: Scaffold(
@@ -50,7 +46,7 @@ class _SearchFiltersState extends State<SearchFilters>{
                               final category = api.categories[index];
                               final isSelected = state.searchOptions.categories.contains(category.id);
                               return FilterChip(
-                                label: Text('Category $index'),
+                                label: Text(category.name),
                                 labelStyle: TextStyle(
                                   color: isSelected
                                       ? Colors.white
@@ -64,9 +60,9 @@ class _SearchFiltersState extends State<SearchFilters>{
                                   setState(() {
                                     if(selected)
                                     {
-                                      state.searchOptions.category.add(category.id);
+                                      state.searchOptions.categories.add(category.id);
                                     }else{
-                                      state.searchOptions.category.remove(category.id);
+                                      state.searchOptions.categories.remove(category.id);
                                     }
                                   });
                                 },
@@ -176,7 +172,6 @@ class _SearchFiltersState extends State<SearchFilters>{
 }
 
 class SearchOptions{
-  List<int> category = [];
   String location;
   String order;
   String sort;
@@ -190,7 +185,7 @@ class SearchOptions{
     'sort': sort,
     'order': order,
     'count': count,
-    'category': categories.join(','),
+    'category': categories.join(',')
   };
 }
 

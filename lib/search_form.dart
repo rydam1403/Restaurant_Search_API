@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'SearchPage.dart';
-import 'restaurant_item.dart';
-import 'search_filter_page.dart';
+
 
 class SearchForm extends StatefulWidget {
   SearchForm({this.onSearch});
@@ -44,13 +42,10 @@ class _SearchFormState extends State<SearchForm> {
                 }
             )),
         SizedBox(
-          height: 10.0,
+          height: 10,
         ),
         Container(
-          width: MediaQuery
-              .of(context)
-              .size
-              .width / 3.0,
+          width: MediaQuery.of(context).size.width/3.0,
           child: RaisedButton(
             child: Text(
               'Search',
